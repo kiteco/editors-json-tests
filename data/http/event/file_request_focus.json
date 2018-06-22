@@ -1,0 +1,12 @@
+{
+  "source": "<<plugin>>",
+  "filename": "<<editor.filename>>",
+  "text": "import json",
+  "action": "focus",
+  "selections": [
+    {
+      "start": 0,
+      "end": 0
+    }
+  ]
+}
