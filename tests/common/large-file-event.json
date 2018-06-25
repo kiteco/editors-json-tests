@@ -26,7 +26,13 @@
           "source": "<<plugin>>",
           "filename": "<<editor.filename>>",
           "action": "skip",
-          "selections": [{"start": 0, "end": 0}]
+          "text": "",
+          "selections": [
+            {
+              "start": 0,
+              "end": 0
+            }
+          ]
         }
       }
     },
@@ -49,7 +55,13 @@
           "source": "<<plugin>>",
           "filename": "<<editor.filename>>",
           "action": "skip",
-          "selections": [{"start": 0, "end": 0}]
+          "text": "",
+          "selections": [
+            {
+              "start": 0,
+              "end": 0
+            }
+          ]
         }
       }
     },
@@ -72,7 +84,13 @@
           "source": "<<plugin>>",
           "filename": "<<editor.filename>>",
           "action": "skip",
-          "selections": [{"start": 0, "end": 0}]
+          "text": "",
+          "selections": [
+            {
+              "start": 0,
+              "end": 0
+            }
+          ]
         }
       }
     }
