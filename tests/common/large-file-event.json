@@ -1,0 +1,80 @@
+{
+  "description": "Tests that a skip event is send for files > 1 megabyte",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file which is larger than 1 megabyte",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/too-large.py"
+      }
+    },
+    {
+      "description": "sends skip event",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "body": {
+          "source": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "action": "skip",
+          "selections": [{"start": 0, "end": 0}]
+        }
+      }
+    },
+    {
+      "description": "moving the cursor",
+      "step": "action",
+      "type": "move_selection",
+      "properties": {
+        "offset": 2
+      }
+    },
+    {
+      "description": "sends skip event",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "body": {
+          "source": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "action": "skip",
+          "selections": [{"start": 0, "end": 0}]
+        }
+      }
+    },
+    {
+      "description": "typing in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\n"
+      }
+    },
+    {
+      "description": "sends skip event",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "body": {
+          "source": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "action": "skip",
+          "selections": [{"start": 0, "end": 0}]
+        }
+      }
+    }
+  ]
+}
