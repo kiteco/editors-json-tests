@@ -1,0 +1,121 @@
+{
+  "description": "Signature completion workflow",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "and typing a function call",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "offset": 11,
+        "text": "\njson.dumps("
+      }
+    },
+    {
+      "description": "sends a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "data/whitelisted/file.py",
+          "text": "import json\njson.dumps(",
+          "cursor_runes": 23
+        }
+      }
+    },
+    {
+      "description": "typing a value",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "123"
+      }
+    },
+    {
+      "description": "doesn't trigger a new signature request",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "count": 1
+      }
+    },
+    {
+      "description": "Typing a comma after the value",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": ","
+      }
+    },
+    {
+      "description": "sends a new signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "data/whitelisted/file.py",
+          "text": "import json\njson.dumps(123,",
+          "cursor_runes": 27
+        }
+      }
+    },
+    {
+      "description": "Pressing ESC",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\u001B"
+      }
+    },
+    {
+      "description": "doesn't trigger a new signature request (and closes the signature popup)",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "count": 2
+      }
+    },
+    {
+      "description": "Typing the closing parenthesis ')'",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "offset": 23,
+        "text": ")"
+      }
+    },
+    {
+      "description": "doesn't trigger a new signature request",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "count": 2
+      }
+    }
+  ]
+}
