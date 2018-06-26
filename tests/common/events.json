@@ -1,5 +1,5 @@
 {
-  "description": "test description",
+  "description": "Event workflow",
   "setup": {
     "whitelist": [
       "data/whitelisted"
@@ -60,7 +60,7 @@
         "method": "POST",
         "body": {
           "source": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "filename": "data/whitelisted/file.py",
           "text": "import json\n",
           "action": "edit",
           "selections": [
@@ -81,7 +81,7 @@
       }
     },
     {
-      "description": "calls the completions endpoint", 
+      "description": "calls the completions endpoint",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -89,9 +89,38 @@
         "method": "POST",
         "body": {
           "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "filename": "data/whitelisted/file.py",
           "text": "import json\nim",
           "cursor_runes": 14
+        }
+      }
+    },
+    {
+      "description": "opening another file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file2.py"
+      }
+    },
+    {
+      "description": "sends a focus event for the new file",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "body": {
+          "source": "<<plugin>>",
+          "filename": "data/whitelisted/file2.py",
+          "text": "import matplotlib",
+          "action": "focus",
+          "selections": [
+            {
+              "start": 0,
+              "end": 0
+            }
+          ]
         }
       }
     }
