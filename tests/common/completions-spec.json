@@ -1,0 +1,161 @@
+{
+  "description": "Tests code completion as defined in behavioural spec",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/empty.py"
+      }
+    },
+    {
+      "description": "typing 'import' in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "import "
+      }
+    },
+    {
+      "description": "triggers completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "text": "import ",
+          "cursor_runes": 7
+        }
+      }
+    },
+    {
+      "description": "typing 'from ' in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\nfrom "
+      }
+    },
+    {
+      "description": "triggers completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "text": "import \nfrom ",
+          "cursor_runes": 13
+        }
+      }
+    },
+    {
+      "description": "typing 'from foo import ' in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "foo import "
+      }
+    },
+    {
+      "description": "triggers completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "text": "import \nfrom foo import ",
+          "cursor_runes": 24
+        }
+      }
+    },
+    {
+      "description": "typing the first characters of an identifier",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\nf"
+      }
+    },
+    {
+      "description": "triggers completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "text": "import \nfrom foo import \nf",
+          "cursor_runes": 26
+        }
+      }
+    },
+    {
+      "description": "typing a dot after an identifier",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "."
+      }
+    },
+    {
+      "description": "triggers completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "<<editor.filename>>",
+          "text": "import \nfrom foo import \nf.",
+          "cursor_runes": 27
+        }
+      }
+    },
+    {
+      "description": "triggers a new completion request",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "count": 5
+      }
+    },
+    {
+      "description": "manual invocation",
+      "step": "action",
+      "type": "request_completion",
+      "properties": {
+      }
+    },
+    {
+      "description": "triggers a new completion request",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "count": 6
+      }
+    }
+  ]
+}
