@@ -1,0 +1,37 @@
+{
+  "description": "Tests supported file extensions",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a JavaScript file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.js"
+      }
+    },
+    {
+      "description": "or opening a *.pyi file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.pyi"
+      }
+    },
+    {
+      "description": "must not trigger an event",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "count": 0
+      }
+    }
+  ]
+}
