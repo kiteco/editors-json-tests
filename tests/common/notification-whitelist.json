@@ -1,16 +1,25 @@
 {
-  "description": "test description",
+  "description": "Tests whitelist notifications with undefined whitelisting",
   "setup": {
     "whitelist": [],
     "kited": "authenticated"
   },
   "test": [
     {
-      "description": "opening a file",
+      "description": "opening a non-whitelisted file",
       "step": "action",
       "type": "open",
       "properties": {
         "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "calls notify endpoint",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/permissions/notify?filename=<<editor.filename>>",
+        "method": "GET"
       }
     },
     {
@@ -22,15 +31,6 @@
         "method": "GET"
       }
     },
-    {
-      "description": "calls notify endpoint",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/permissions/notify?filename=<<editor.filename>>",
-        "method": "GET"
-      }
-    }, 
     {
       "description": "shows a warning notification",
       "step": "expect",

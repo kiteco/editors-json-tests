@@ -1,0 +1,61 @@
+{
+  "description": "Test the hover feature in a whitelisted file",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/unicode.py"
+      }
+    },
+    {
+      "description": "moving cursor over identifier",
+      "step": "action",
+      "type": "move_selection",
+      "properties": {
+        "offset": 2
+      }
+    },
+    {
+      "description": "requesting hover",
+      "step": "action",
+      "type": "request_hover",
+      "properties": {
+      }
+    },
+    {
+      "description": "sends a hover request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/api/buffer/intellij/<<editor.filename_escaped>>/13df6c82b2545f7fae3b9aa94979ff1d/hover?cursor_runes=2",
+        "method": "GET"
+      }
+    },
+    {
+      "description": "typing after hover was shown",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\nimport matplotlib"
+      }
+    },
+    {
+      "description": "sends no other hover request",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/api/buffer/intellij/<<editor.filename_escaped>>/<<editor.hash>>/hover?cursor_runes=<<editor.offset>>",
+        "method": "GET",
+        "count": 0
+      }
+    }
+  ]
+}

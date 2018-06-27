@@ -1,0 +1,83 @@
+{
+  "description": "Tests supported file extensions",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a *.pyi file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.pyi"
+      }
+    },
+    {
+      "description": "or opening a JavaScript file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.js"
+      }
+    },
+    {
+      "description": "must not trigger a (focus) event",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "count": 0
+      }
+    },
+    {
+      "description": "typing in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "import json"
+      }
+    },
+    {
+      "description": "must not trigger an event",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/event",
+        "method": "POST",
+        "count": 0
+      }
+    },
+    {
+      "description": "must not trigger code completion",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "count": 0
+      }
+    },
+    {
+      "description": "typing a method invocation",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\njson.loads("
+      }
+    },
+    {
+      "description": "does not trigger signature completion",
+      "step": "expect",
+      "type": "request_count",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "count": 0
+      }
+    }
+  ]
+}

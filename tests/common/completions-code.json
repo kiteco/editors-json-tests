@@ -1,0 +1,51 @@
+{
+  "description": "Tests code completion workflow",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "typing unicode characters",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\n??",
+        "offset": 11
+      }
+    },
+    {
+      "description": "and typing an identifier",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\njson.dum"
+      }
+    },
+    {
+      "description": "sends a completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/completions",
+        "method": "POST",
+        "body": {
+          "editor": "<<plugin>>",
+          "filename": "data/whitelisted/file.py",
+          "text": "import json\n??\njson.dum",
+          "cursor_runes": 23
+        }
+      }
+    }
+  ]
+}
