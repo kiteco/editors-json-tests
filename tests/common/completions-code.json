@@ -20,7 +20,7 @@
       "step": "action",
       "type": "input_text",
       "properties": {
-        "text": "\n??",
+        "text": "\n你好",
         "offset": 11
       }
     },
@@ -42,7 +42,7 @@
         "body": {
           "editor": "<<plugin>>",
           "filename": "data/whitelisted/file.py",
-          "text": "import json\n??\njson.dum",
+          "text": "import json\n你好\njson.dum",
           "cursor_runes": 23
         }
       }
