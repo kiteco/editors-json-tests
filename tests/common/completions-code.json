@@ -41,7 +41,7 @@
         "method": "POST",
         "body": {
           "editor": "<<plugin>>",
-          "filename": "data/whitelisted/file.py",
+          "filename": "<<editor.filename>>",
           "text": "import json\n你好\njson.dum",
           "cursor_runes": 23
         }

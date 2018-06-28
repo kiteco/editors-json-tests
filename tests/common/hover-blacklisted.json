@@ -35,7 +35,7 @@
       "step": "expect",
       "type": "request_count",
       "properties": {
-        "path": "/api/buffer/intellij/<<editor.filename_escaped>>/<<editor.hash>>/hover?cursor_runes=<<editor.offset>>",
+        "path": "/api/buffer/<<plugin>>/<<editor.filename_escaped>>/<<editor.hash>>/hover?cursor_runes=<<editor.offset>>",
         "method": "GET",
         "count": 0
       }
