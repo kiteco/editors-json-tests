@@ -20,7 +20,7 @@
       "step": "action",
       "type": "input_text",
       "properties": {
-        "text": "import "
+        "text": "import j"
       }
     },
     {
@@ -33,17 +33,17 @@
         "body": {
           "editor": "<<plugin>>",
           "filename": "<<editor.filename>>",
-          "text": "import ",
-          "cursor_runes": 7
+          "text": "import j",
+          "cursor_runes": 8
         }
       }
     },
     {
-      "description": "typing 'from ' in the buffer",
+      "description": "typing 'from f' in the buffer",
       "step": "action",
       "type": "input_text",
       "properties": {
-        "text": "\nfrom "
+        "text": "\nfrom f"
       }
     },
     {
@@ -56,17 +56,17 @@
         "body": {
           "editor": "<<plugin>>",
           "filename": "<<editor.filename>>",
-          "text": "import \nfrom ",
-          "cursor_runes": 13
+          "text": "import j\nfrom f",
+          "cursor_runes": 15
         }
       }
     },
     {
-      "description": "typing 'from foo import ' in the buffer",
+      "description": "typing 'from foo import j' in the buffer",
       "step": "action",
       "type": "input_text",
       "properties": {
-        "text": "foo import "
+        "text": "oo import j"
       }
     },
     {
@@ -79,8 +79,8 @@
         "body": {
           "editor": "<<plugin>>",
           "filename": "<<editor.filename>>",
-          "text": "import \nfrom foo import ",
-          "cursor_runes": 24
+          "text": "import j\nfrom foo import j",
+          "cursor_runes": 26
         }
       }
     },
@@ -102,8 +102,8 @@
         "body": {
           "editor": "<<plugin>>",
           "filename": "<<editor.filename>>",
-          "text": "import \nfrom foo import \nf",
-          "cursor_runes": 26
+          "text": "import j\nfrom foo import j\nf",
+          "cursor_runes": 28
         }
       }
     },
@@ -125,8 +125,8 @@
         "body": {
           "editor": "<<plugin>>",
           "filename": "<<editor.filename>>",
-          "text": "import \nfrom foo import \nf.",
-          "cursor_runes": 27
+          "text": "import j\nfrom foo import j\nf.",
+          "cursor_runes": 29
         }
       }
     },
