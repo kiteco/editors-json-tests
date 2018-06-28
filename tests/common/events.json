@@ -60,7 +60,7 @@
         "method": "POST",
         "body": {
           "source": "<<plugin>>",
-          "filename": "data/whitelisted/file.py",
+          "filename": "<<editor.filename>>",
           "text": "import json\n",
           "action": "edit",
           "selections": [
@@ -89,7 +89,7 @@
         "method": "POST",
         "body": {
           "editor": "<<plugin>>",
-          "filename": "data/whitelisted/file.py",
+          "filename": "<<editor.filename>>",
           "text": "import json\nim",
           "cursor_runes": 14
         }
@@ -112,7 +112,7 @@
         "method": "POST",
         "body": {
           "source": "<<plugin>>",
-          "filename": "data/whitelisted/file2.py",
+          "filename": "<<editor.filename>>",
           "text": "import matplotlib",
           "action": "focus",
           "selections": [
