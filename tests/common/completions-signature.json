@@ -16,11 +16,18 @@
       }
     },
     {
+      "description": "moving the cursor",
+      "step": "action",
+      "type": "move_selection",
+      "properties": {
+        "offset": 11
+      }
+    },
+    {
       "description": "and typing a function call",
       "step": "action",
       "type": "input_text",
       "properties": {
-        "offset": 11,
         "text": "\njson.dumps("
       }
     },
@@ -103,7 +110,6 @@
       "step": "action",
       "type": "input_text",
       "properties": {
-        "offset": 23,
         "text": ")"
       }
     },
