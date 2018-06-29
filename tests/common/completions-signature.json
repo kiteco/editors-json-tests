@@ -88,24 +88,6 @@
       }
     },
     {
-      "description": "Pressing ESC",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": "\u001B"
-      }
-    },
-    {
-      "description": "doesn't trigger a new signature request (and closes the signature popup)",
-      "step": "expect",
-      "type": "request_count",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "count": 2
-      }
-    },
-    {
       "description": "Typing the closing parenthesis ')'",
       "step": "action",
       "type": "input_text",
