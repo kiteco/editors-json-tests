@@ -1,5 +1,6 @@
 {
   "description": "Tests code completion as defined in behavioural spec",
+  "ignore": true,
   "setup": {
     "whitelist": [
       "data/whitelisted"
