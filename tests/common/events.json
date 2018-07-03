@@ -28,7 +28,7 @@
     {
       "description": "moving the cursor",
       "step": "action",
-      "type": "move_selection",
+      "type": "move_cursor",
       "properties": {
         "offset": 11
       }
@@ -59,8 +59,8 @@
         "path": "/clientapi/editor/event",
         "method": "POST",
         "body": {
-          "source": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "source": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "import json\n",
           "action": "edit",
           "selections": [
@@ -88,8 +88,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "import json\nim",
           "cursor_runes": 14
         }
@@ -111,8 +111,8 @@
         "path": "/clientapi/editor/event",
         "method": "POST",
         "body": {
-          "source": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "source": "${plugin}",
+          "filename": "${editors.data/whitelisted/file2.py.filename}",
           "text": "import matplotlib",
           "action": "focus",
           "selections": [

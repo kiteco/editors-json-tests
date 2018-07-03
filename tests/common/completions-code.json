@@ -18,7 +18,7 @@
     {
       "description": "moving the cursor at the end",
       "step": "action",
-      "type": "move_selection",
+      "type": "move_cursor",
       "properties": {
         "offset": 11
       }
@@ -47,8 +47,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "import json\n你好\njson.dum",
           "cursor_runes": 23
         }

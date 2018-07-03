@@ -18,7 +18,7 @@
       "step": "expect",
       "type": "request",
       "properties": {
-        "path": "/clientapi/permissions/notify?filename=<<editor.filename>>",
+        "path": "/clientapi/permissions/notify?filename=${editors.data/whitelisted/file.py.filename}",
         "method": "GET"
       }
     },
@@ -27,7 +27,7 @@
       "step": "expect",
       "type": "request",
       "properties": {
-        "path": "/clientapi/projectdir?filename=<<editor.filename>>",
+        "path": "/clientapi/projectdir?filename=${editors.data/whitelisted/file.py.filename}",
         "method": "GET"
       }
     },
@@ -37,7 +37,7 @@
       "type": "notification",
       "properties": {
         "level": "warning",
-        "message": "Kite is not whitelisted for <<editor.filename>>"
+        "message": "Kite is not whitelisted for ${editors.data/whitelisted/file.py.filename}"
       }
     }
   ]

@@ -18,7 +18,7 @@
     {
       "description": "moving cursor over identifier",
       "step": "action",
-      "type": "move_selection",
+      "type": "move_cursor",
       "properties": {
         "offset": 9
       }
@@ -35,7 +35,7 @@
       "step": "expect",
       "type": "request_count",
       "properties": {
-        "path": "/api/buffer/<<plugin>>/<<editor.filename_escaped>>/<<editor.hash>>/hover?cursor_runes=<<editor.offset>>",
+        "path": "/api/buffer/${plugin}/${editors.data/blacklisted/file.py.filename_escaped}/${editors.data/blacklisted/file.py.hash}/hover?cursor_runes=${editors.data/blacklisted/file.py.offset}",
         "method": "GET",
         "count": 0
       }

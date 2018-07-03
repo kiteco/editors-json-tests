@@ -21,7 +21,7 @@
       "step": "expect",
       "type": "request",
       "properties": {
-        "path": "/clientapi/permissions/notify?filename=<<editor.filename>>",
+        "path": "/clientapi/permissions/notify?filename=${editors.data/blacklisted/file.py.filename}",
         "method": "GET"
       }
     },
@@ -30,7 +30,7 @@
       "step": "expect",
       "type": "request_count",
       "properties": {
-        "path": "/clientapi/projectdir?filename=<<editor.filename>>",
+        "path": "/clientapi/projectdir?filename=${editors.data/blacklisted/file.py.filename}",
         "method": "GET",
         "count": 0
       }

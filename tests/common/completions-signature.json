@@ -18,7 +18,7 @@
     {
       "description": "moving the cursor",
       "step": "action",
-      "type": "move_selection",
+      "type": "move_cursor",
       "properties": {
         "offset": 11
       }
@@ -39,8 +39,8 @@
         "path": "/clientapi/editor/signatures",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "import json\njson.dumps(",
           "cursor_runes": 23
         }
@@ -80,8 +80,8 @@
         "path": "/clientapi/editor/signatures",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "import json\njson.dumps(123,",
           "cursor_runes": 27
         }

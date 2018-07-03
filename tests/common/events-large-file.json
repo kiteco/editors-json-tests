@@ -23,8 +23,8 @@
         "path": "/clientapi/editor/event",
         "method": "POST",
         "body": {
-          "source": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "source": "${plugin}",
+          "filename": "${editors.data/whitelisted/too-large.py.filename}",
           "action": "skip",
           "text": "",
           "selections": [
@@ -39,7 +39,7 @@
     {
       "description": "moving the cursor",
       "step": "action",
-      "type": "move_selection",
+      "type": "move_cursor",
       "properties": {
         "offset": 2
       }
@@ -52,8 +52,8 @@
         "path": "/clientapi/editor/event",
         "method": "POST",
         "body": {
-          "source": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "source": "${plugin}",
+          "filename": "${editors.data/whitelisted/too-large.py.filename}",
           "action": "skip",
           "text": "",
           "selections": [
@@ -81,8 +81,8 @@
         "path": "/clientapi/editor/event",
         "method": "POST",
         "body": {
-          "source": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "source": "${plugin}",
+          "filename": "${editors.data/whitelisted/too-large.py.filename}",
           "action": "skip",
           "text": "",
           "selections": [

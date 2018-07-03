@@ -1,6 +1,6 @@
 {
-  "source": "<<plugin>>",
-  "filename": "<<editor.filename>>",
+  "source": "${plugin}",
+  "filename": "${editors.data/whitelisted/file.py.filename}",
   "text": "import json",
   "action": "focus",
   "selections": [

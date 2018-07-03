@@ -32,8 +32,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
           "text": "import ",
           "cursor_runes": 7
         }
@@ -55,8 +55,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
           "text": "import \nfrom ",
           "cursor_runes": 13
         }
@@ -78,8 +78,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
           "text": "import \nfrom foo import ",
           "cursor_runes": 24
         }
@@ -101,8 +101,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
           "text": "import \nfrom foo import \nf",
           "cursor_runes": 26
         }
@@ -124,8 +124,8 @@
         "path": "/clientapi/editor/completions",
         "method": "POST",
         "body": {
-          "editor": "<<plugin>>",
-          "filename": "<<editor.filename>>",
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
           "text": "import \nfrom foo import \nf.",
           "cursor_runes": 27
         }
