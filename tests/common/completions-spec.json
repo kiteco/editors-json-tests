@@ -1,6 +1,5 @@
 {
   "description": "Tests code completion as defined in behavioural spec",
-  "ignore": true,
   "setup": {
     "whitelist": [
       "data/whitelisted"
@@ -17,7 +16,7 @@
       }
     },
     {
-      "description": "typing 'import' in the buffer",
+      "description": "typing 'import ' in the buffer",
       "step": "action",
       "type": "input_text",
       "properties": {
@@ -25,7 +24,7 @@
       }
     },
     {
-      "description": "triggers completion request",
+      "description": "triggers automatic completion request",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -48,7 +47,7 @@
       }
     },
     {
-      "description": "triggers completion request",
+      "description": "triggers automatic completion request",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -71,7 +70,7 @@
       }
     },
     {
-      "description": "triggers completion request",
+      "description": "triggers automatic completion",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -94,7 +93,7 @@
       }
     },
     {
-      "description": "triggers completion request",
+      "description": "triggers automatic completion",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -117,7 +116,7 @@
       }
     },
     {
-      "description": "triggers completion request",
+      "description": "triggers automatic completion",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -132,30 +131,33 @@
       }
     },
     {
-      "description": "triggers a new completion request",
-      "step": "expect",
-      "type": "request_count",
+      "description": "moving the cursor",
+      "step": "action",
+      "type": "move_cursor",
       "properties": {
-        "path": "/clientapi/editor/completions",
-        "method": "POST",
-        "count": 5
+        "offset": 26
       }
     },
     {
-      "description": "manual invocation",
+      "description": "requesting manual invocation",
       "step": "action",
       "type": "request_completion",
       "properties": {
       }
     },
     {
-      "description": "triggers a new completion request",
+      "description": "triggers a completion request",
       "step": "expect",
-      "type": "request_count",
+      "type": "request",
       "properties": {
         "path": "/clientapi/editor/completions",
         "method": "POST",
-        "count": 6
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import \nfrom foo import \nf.",
+          "cursor_runes": 26
+        }
       }
     }
   ]
