@@ -1,0 +1,26 @@
+{
+  "description": "Tests notifications with unreachable kited",
+  "setup": {
+    "whitelist": [],
+    "kited": "unreachable"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "shows an error notification",
+      "step": "expect",
+      "type": "notification",
+      "properties": {
+        "level": "error",
+        "message": "The Kite background service is running but not reachable."
+      }
+    }
+  ]
+}

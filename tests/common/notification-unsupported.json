@@ -1,0 +1,26 @@
+{
+  "description": "Tests notifications on unsupported platform",
+  "setup": {
+    "whitelist": [],
+    "kited": "unsupported"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "shows an error notification",
+      "step": "expect",
+      "type": "notification",
+      "properties": {
+        "level": "error",
+        "message": "Sorry, the Kite engine is currently not supported on your platform"
+      }
+    }
+  ]
+}

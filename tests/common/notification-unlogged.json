@@ -1,0 +1,26 @@
+{
+  "description": "Tests login notifications",
+  "setup": {
+    "whitelist": [],
+    "kited": "reachable"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "shows an error notification",
+      "step": "expect",
+      "type": "notification",
+      "properties": {
+        "level": "error",
+        "message": "You need to login to the Kite engine."
+      }
+    }
+  ]
+}
