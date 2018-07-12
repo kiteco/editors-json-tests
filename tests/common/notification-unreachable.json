@@ -19,7 +19,7 @@
       "type": "notification",
       "properties": {
         "level": "error",
-        "message": "The Kite background service is running but not reachable."
+        "message": "The Kite background service is running but not reachable"
       }
     }
   ]

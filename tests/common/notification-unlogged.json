@@ -19,7 +19,7 @@
       "type": "notification",
       "properties": {
         "level": "error",
-        "message": "You need to login to the Kite engine."
+        "message": "You need to login to the Kite engine"
       }
     }
   ]
