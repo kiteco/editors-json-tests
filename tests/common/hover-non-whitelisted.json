@@ -9,7 +9,7 @@
         "step": "action",
         "type": "open",
         "properties": {
-          "file": "data/blacklisted/file.py"
+          "file": "data/whitelisted/file.py"
         }
       },
       {
@@ -21,7 +21,7 @@
         }
       },
       {
-        "description": "requesting hover in a blacklisted file",
+        "description": "requesting hover in a non whitelisted file",
         "step": "action",
         "type": "request_hover",
         "properties": {
@@ -32,7 +32,7 @@
         "step": "expect",
         "type": "request_count",
         "properties": {
-          "path": "/api/buffer/${plugin}/${editors.data/blacklisted/file.py.filename_escaped}/${editors.data/blacklisted/file.py.hash}/hover?cursor_runes=${editors.data/blacklisted/file.py.offset}",
+          "path": "/api/buffer/${plugin}/${editors.data/whitelisted/file.py.filename_escaped}/${editors.data/whitelisted/file.py.hash}/hover?cursor_runes=${editors.data/whitelisted/file.py.offset}",
           "method": "GET",
           "count": 0
         }
