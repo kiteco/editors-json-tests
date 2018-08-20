@@ -1,0 +1,4 @@
+[
+  "completions", "events", "hover", "notifications", "signatures",
+  "hover-pre-check", "events-pre-check", "completions-pre-check"
+]
