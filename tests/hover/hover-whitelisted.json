@@ -10,7 +10,7 @@
         "match": "^\\/api\\/buffer\\/${plugin}\\/(.*)\\/hover\\?cursor_runes=2$",
         "response": {
           "status": 200,
-          "body": "data/responses/hover.json"
+          "body": "data/http/responses/hover.json"
         }
       }
     ]
