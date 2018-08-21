@@ -1,0 +1,190 @@
+{
+  "language": "python",
+  "part_of_syntax": "name",
+  "symbol": [
+    {
+      "id": "python;;;;;json",
+      "name": "json",
+      "parent": {
+        "id": "",
+        "name": "."
+      },
+      "namespace": {
+        "id": "",
+        "kind": "unknown",
+        "repr": "",
+        "type": "",
+        "type_id": ""
+      },
+      "value": [
+        {
+          "id": "python;;;;json",
+          "kind": "module",
+          "repr": "json",
+          "type": "",
+          "type_id": "",
+          "synopsis": "JSON (JavaScript Object Notation) <http://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\njson exposes an API familiar to users of the standard library\nmarshal and pickle modules. It is the externally maintained\nversion of the json library contained in Python 2.6, but maintains\ncompatibility with Python 2.4 and Python 2.5 and (currently) has\nsignificant performance advantages, even without using the optional C\nextension for speedups.\nEncoding",
+          "details": {
+            "function": null,
+            "type": null,
+            "instance": null,
+            "module": {
+              "members": [
+                {
+                  "id": "python;;;;json;dumps",
+                  "name": "dumps",
+                  "parent": {
+                    "id": "python;;;;json",
+                    "name": "json"
+                  },
+                  "namespace": {
+                    "id": "python;;;;json",
+                    "kind": "module",
+                    "repr": "json",
+                    "type": "",
+                    "type_id": ""
+                  },
+                  "value": [
+                    {
+                      "id": "python;;;;json.dumps",
+                      "kind": "function",
+                      "repr": "json.dumps",
+                      "type": "",
+                      "type_id": ""
+                    }
+                  ]
+                },
+                {
+                  "id": "python;;;;json;loads",
+                  "name": "loads",
+                  "parent": {
+                    "id": "python;;;;json",
+                    "name": "json"
+                  },
+                  "namespace": {
+                    "id": "python;;;;json",
+                    "kind": "module",
+                    "repr": "json",
+                    "type": "",
+                    "type_id": ""
+                  },
+                  "value": [
+                    {
+                      "id": "python;;;;json.loads",
+                      "kind": "function",
+                      "repr": "json.loads",
+                      "type": "",
+                      "type_id": ""
+                    }
+                  ]
+                },
+                {
+                  "id": "python;;;;json;load",
+                  "name": "load",
+                  "parent": {
+                    "id": "python;;;;json",
+                    "name": "json"
+                  },
+                  "namespace": {
+                    "id": "python;;;;json",
+                    "kind": "module",
+                    "repr": "json",
+                    "type": "",
+                    "type_id": ""
+                  },
+                  "value": [
+                    {
+                      "id": "python;;;;json.load",
+                      "kind": "function",
+                      "repr": "json.load",
+                      "type": "",
+                      "type_id": ""
+                    }
+                  ]
+                },
+                {
+                  "id": "python;;;;json;JSONEncoder",
+                  "name": "JSONEncoder",
+                  "parent": {
+                    "id": "python;;;;json",
+                    "name": "json"
+                  },
+                  "namespace": {
+                    "id": "python;;;;json",
+                    "kind": "module",
+                    "repr": "json",
+                    "type": "",
+                    "type_id": ""
+                  },
+                  "value": [
+                    {
+                      "id": "python;;;;json.JSONEncoder",
+                      "kind": "type",
+                      "repr": "json.JSONEncoder",
+                      "type": "type",
+                      "type_id": "python;;;;__builtin__.type"
+                    }
+                  ]
+                },
+                {
+                  "id": "python;;;;json;dump",
+                  "name": "dump",
+                  "parent": {
+                    "id": "python;;;;json",
+                    "name": "json"
+                  },
+                  "namespace": {
+                    "id": "python;;;;json",
+                    "kind": "module",
+                    "repr": "json",
+                    "type": "",
+                    "type_id": ""
+                  },
+                  "value": [
+                    {
+                      "id": "python;;;;json.dump",
+                      "kind": "function",
+                      "repr": "json.dump",
+                      "type": "",
+                      "type_id": ""
+                    }
+                  ]
+                }
+              ],
+              "total_members": 13
+            }
+          },
+          "ancestors": null
+        }
+      ],
+      "synopsis": ""
+    }
+  ],
+  "report": {
+    "definition": null,
+    "description_text": "JSON (JavaScript Object Notation) <http://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\njson exposes an API familiar to users of the standard library\nmarshal and pickle modules. It is the externally maintained\nversion of the json library contained in Python 2.6, but maintains\ncompatibility with Python 2.4 and Python 2.5 and (currently) has\nsignificant performance advantages, even without using the optional C\nextension for speedups.\nEncoding basic Python object hierarchies:",
+    "description_html": "<body>\n\n\n<p>JSON (JavaScript Object Notation) &lt;<a class=\"external_link\" href=\"#http://json.org\">http://json.org</a>&gt; is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.</p>\n<p><a href=\"#json\" class=\"internal_link\">json</a> exposes an API familiar to users of the standard library\n<a href=\"#marshal\" class=\"internal_link\">marshal</a> and <a href=\"#pickle\" class=\"internal_link\">pickle</a> modules. It is the externally maintained\nversion of the <a href=\"#json\" class=\"internal_link\">json</a> library contained in Python 2.6, but maintains\ncompatibility with Python 2.4 and Python 2.5 and (currently) has\nsignificant performance advantages, even without using the optional C\nextension for speedups.</p>\n<p>Encoding basic Python object hierarchies:</p>\n<pre class=\"lang-python\"><code>&gt;&gt;&gt; import json\n&gt;&gt;&gt; json.dumps([&#39;foo&#39;, {&#39;bar&#39;: (&#39;baz&#39;, None, 1.0, 2)}])\n&#39;[&#34;foo&#34;, {&#34;bar&#34;: [&#34;baz&#34;, null, 1.0, 2]}]&#39;\n&gt;&gt;&gt; print json.dumps(&#34;\\&#34;foo\\bar&#34;)\n&#34;\\&#34;foo\\bar&#34;\n&gt;&gt;&gt; print json.dumps(u&#39;\\u1234&#39;)\n&#34;\\u1234&#34;\n&gt;&gt;&gt; print json.dumps(&#39;\\\\&#39;)\n&#34;\\\\&#34;\n&gt;&gt;&gt; print json.dumps({&#34;c&#34;: 0, &#34;b&#34;: 0, &#34;a&#34;: 0}, sort_keys=True)\n{&#34;a&#34;: 0, &#34;b&#34;: 0, &#34;c&#34;: 0}\n&gt;&gt;&gt; from StringIO import StringIO\n&gt;&gt;&gt; io = StringIO()\n&gt;&gt;&gt; json.dump([&#39;streaming API&#39;], io)\n&gt;&gt;&gt; io.getvalue()\n&#39;[&#34;streaming API&#34;]&#39;\n</code></pre>\n<p>Compact encoding:</p>\n<pre class=\"lang-python\"><code>&gt;&gt;&gt; import json\n&gt;&gt;&gt; json.dumps([1,2,3,{&#39;4&#39;: 5, &#39;6&#39;: 7}], sort_keys=True, separators=(&#39;,&#39;,&#39;:&#39;))\n&#39;[1,2,3,{&#34;4&#34;:5,&#34;6&#34;:7}]&#39;\n</code></pre>\n<p>Pretty printing:</p>\n<pre class=\"lang-python\"><code>&gt;&gt;&gt; import json\n&gt;&gt;&gt; print json.dumps({&#39;4&#39;: 5, &#39;6&#39;: 7}, sort_keys=True,\n...                  indent=4, separators=(&#39;,&#39;, &#39;: &#39;))\n{\n    &#34;4&#34;: 5,\n    &#34;6&#34;: 7\n}\n</code></pre>\n<p>Decoding JSON:</p>\n<pre class=\"lang-python\"><code>&gt;&gt;&gt; import json\n&gt;&gt;&gt; obj = [u&#39;foo&#39;, {u&#39;bar&#39;: [u&#39;baz&#39;, None, 1.0, 2]}]\n&gt;&gt;&gt; json.loads(&#39;[&#34;foo&#34;, {&#34;bar&#34;:[&#34;baz&#34;, null, 1.0, 2]}]&#39;) == obj\nTrue\n&gt;&gt;&gt; json.loads(&#39;&#34;\\\\&#34;foo\\\\bar&#34;&#39;) == u&#39;&#34;foo\\x08ar&#39;\nTrue\n&gt;&gt;&gt; from StringIO import StringIO\n&gt;&gt;&gt; io = StringIO(&#39;[&#34;streaming API&#34;]&#39;)\n&gt;&gt;&gt; json.load(io)[0] == &#39;streaming API&#39;\nTrue\n</code></pre>\n<p>Specializing JSON object decoding:</p>\n<pre class=\"lang-python\"><code>&gt;&gt;&gt; import json\n&gt;&gt;&gt; def as_complex(dct):\n...     if &#39;__complex__&#39; in dct:\n...         return complex(dct[&#39;real&#39;], dct[&#39;imag&#39;])\n...     return dct\n...\n&gt;&gt;&gt; json.loads(&#39;{&#34;__complex__&#34;: true, &#34;real&#34;: 1, &#34;imag&#34;: 2}&#39;,\n...     object_hook=as_complex)\n(1+2j)\n&gt;&gt;&gt; from decimal import Decimal\n&gt;&gt;&gt; json.loads(&#39;1.1&#39;, parse_float=Decimal) == Decimal(&#39;1.1&#39;)\nTrue\n</code></pre>\n<p>Specializing JSON object encoding:</p>\n<pre class=\"lang-python\"><code>&gt;&gt;&gt; import json\n&gt;&gt;&gt; def encode_complex(obj):\n...     if isinstance(obj, complex):\n...         return [obj.real, obj.imag]\n...     raise TypeError(repr(o) + &#34; is not JSON serializable&#34;)\n...\n&gt;&gt;&gt; json.dumps(2 + 1j, default=encode_complex)\n&#39;[2.0, 1.0]&#39;\n&gt;&gt;&gt; json.JSONEncoder(default=encode_complex).encode(2 + 1j)\n&#39;[2.0, 1.0]&#39;\n&gt;&gt;&gt; &#39;&#39;.join(json.JSONEncoder(default=encode_complex).iterencode(2 + 1j))\n&#39;[2.0, 1.0]&#39;\n</code></pre>\n<p>Using json.tool from the shell to validate and pretty-print:</p>\n<pre class=\"lang-python\"><code>$ echo &#39;{&#34;json&#34;:&#34;obj&#34;}&#39; | python -m json.tool\n{\n    &#34;json&#34;: &#34;obj&#34;\n}\n$ echo &#39;{ 1.2:3.4}&#39; | python -m json.tool\nExpecting property name enclosed in double quotes: line 1 column 3 (char 2)\n</code></pre>\n</body>",
+    "examples": [
+      {
+        "id": 327,
+        "title": "Encode Python primitives to JSON strings"
+      },
+      {
+        "id": 329,
+        "title": "Encode a `dict` to a JSON string"
+      },
+      {
+        "id": 324,
+        "title": "Decode a JSON formatted string to a dictionary"
+      },
+      {
+        "id": 4782,
+        "title": "Check if a string is valid JSON"
+      }
+    ],
+    "usages": null,
+    "total_usages": 0,
+    "links": null,
+    "total_links": 0
+  }
+}

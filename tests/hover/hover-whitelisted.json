@@ -4,7 +4,16 @@
     "whitelist": [
       "data/whitelisted"
     ],
-    "kited": "authenticated"
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^\\/api\\/buffer\\/${plugin}\\/(.*)\\/hover\\?cursor_runes=2$",
+        "response": {
+          "status": 200,
+          "body": "data/http/responses/hover.json"
+        }
+      }
+    ]
   },
   "test": [
     {
@@ -38,6 +47,11 @@
         "path": "/api/buffer/${plugin}/${editors.data/whitelisted/unicode.py.filename_escaped}/13df6c82b2545f7fae3b9aa94979ff1d/hover?cursor_runes=2",
         "method": "GET"
       }
+    },
+    {
+      "description": "returns valid hover data",
+      "step": "expect",
+      "type": "hover_data"
     },
     {
       "description": "typing after hover was shown",
