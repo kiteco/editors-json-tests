@@ -1,0 +1,41 @@
+  {
+    "description": "Test the hover feature in a non whitelisted file",
+    "setup": {
+      "kited": "authenticated"
+    },
+    "test": [
+      {
+        "description": "opening a non whitelisted file",
+        "step": "action",
+        "type": "open",
+        "properties": {
+          "file": "data/whitelisted/file.py"
+        }
+      },
+      {
+        "description": "moving cursor over identifier",
+        "step": "action",
+        "type": "move_cursor",
+        "properties": {
+          "offset": 9
+        }
+      },
+      {
+        "description": "requesting hover in a non whitelisted file",
+        "step": "action",
+        "type": "request_hover",
+        "properties": {
+        }
+      },
+      {
+        "description": "sends no hover request (it's supressed by the previous 403 event response)",
+        "step": "expect",
+        "type": "request_count",
+        "properties": {
+          "path": "/api/buffer/${plugin}/${editors.data/whitelisted/file.py.filename_escaped}/${editors.data/whitelisted/file.py.hash}/hover?cursor_runes=${editors.data/whitelisted/file.py.offset}",
+          "method": "GET",
+          "count": 0
+        }
+      }
+    ]
+  }
