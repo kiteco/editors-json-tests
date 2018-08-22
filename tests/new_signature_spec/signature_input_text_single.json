@@ -58,7 +58,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo()",
+          "text": "foo(",
           "cursor_runes": 4
         }
       }
@@ -81,7 +81,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(b)",
+          "text": "foo(b",
           "cursor_runes": 5
         }
       }
@@ -104,7 +104,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(ba)",
+          "text": "foo(ba",
           "cursor_runes": 6
         }
       }
@@ -127,7 +127,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar)",
+          "text": "foo(bar",
           "cursor_runes": 7
         }
       }
@@ -150,7 +150,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar,)",
+          "text": "foo(bar,",
           "cursor_runes": 8
         }
       }
@@ -173,7 +173,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, )",
+          "text": "foo(bar, ",
           "cursor_runes": 9
         }
       }
@@ -196,7 +196,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, b)",
+          "text": "foo(bar, b",
           "cursor_runes": 10
         }
       }
@@ -219,7 +219,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, ba)",
+          "text": "foo(bar, ba",
           "cursor_runes": 11
         }
       }
@@ -242,7 +242,7 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, baz)",
+          "text": "foo(bar, baz",
           "cursor_runes": 12
         }
       }
