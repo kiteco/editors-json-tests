@@ -41,7 +41,7 @@
       }
     },
     {
-      "description": "typing open parent '('",
+      "description": "typing open paren '('",
       "step": "action",
       "type": "input_text",
       "properties": {
