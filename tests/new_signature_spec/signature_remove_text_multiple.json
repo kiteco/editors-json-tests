@@ -1,0 +1,116 @@
+{
+  "description": "Tests the signature specification at https://kite.quip.com/NdIbAwg272aJ/Spec-Function-Signatures-Editor-Plugins-UIUX-WIP, removals using multiple character deletions",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/signature.json"
+        }
+      },
+      {
+        "match": "^/clientapi/plan$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/plan.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "new_file",
+      "properties": {
+        "file": "data/whitelisted/file.py",
+        "content": "foo(bar, baz"
+      }
+    },
+    {
+      "description": "moving cursor at end of input",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 12
+      }
+    },
+    {
+      "description": "removing 'baz' in the buffer",
+      "step": "action",
+      "type": "remove_text",
+      "properties": {
+        "from_offset": 12,
+        "to_offset": 9
+      }
+    },
+    {
+      "description": "triggers a signature request after deletion of 'z'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, ",
+          "cursor_runes": 9
+        }
+      }
+    },
+    {
+      "description": "removing ', ' in the buffer",
+      "step": "action",
+      "type": "remove_text",
+      "properties": {
+        "from_offset": 9,
+        "to_offset": 7
+      }
+    },
+    {
+      "description": "triggers a signature request after deletion of ', '",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar",
+          "cursor_runes": 7
+        }
+      }
+    },
+    {
+      "description": "removing 'bar' in the buffer",
+      "step": "action",
+      "type": "remove_text",
+      "properties": {
+        "from_offset": 7,
+        "to_offset": 4
+      }
+    },
+    {
+      "description": "triggers a signature request after deletion of 'bar'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(",
+          "cursor_runes": 4
+        }
+      }
+    }
+  ]
+}
