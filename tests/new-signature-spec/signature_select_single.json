@@ -1,0 +1,266 @@
+{
+  "description": "Tests the signature specification at https://kite.quip.com/NdIbAwg272aJ/Spec-Function-Signatures-Editor-Plugins-UIUX-WIP with select events (no edit before selects).",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/signature.json"
+        }
+      },
+      {
+        "match": "^/clientapi/plan$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/plan.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "new_file",
+      "properties": {
+        "file": "data/whitelisted/file.py",
+        "content": "foo(bar, baz"
+      }
+    },
+    {
+      "description": "moving cursor at end of identifier",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 12
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 12
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind z",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 11
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 11
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind a",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 10
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 10
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind b",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 9
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 9
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind space",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 8
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 8
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind comma",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 7
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 7
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind r",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 6
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 6
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind a",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 5
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 5
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind b",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 4
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 4
+        }
+      }
+    },
+    {
+      "description": "moving the cursor at the end of the document in front of z",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 12
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 12
+        }
+      }
+    }
+  ]
+}

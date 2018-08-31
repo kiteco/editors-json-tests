@@ -1,0 +1,251 @@
+{
+  "description": "Tests the signature specification at https://kite.quip.com/NdIbAwg272aJ/Spec-Function-Signatures-Editor-Plugins-UIUX-WIP with edit events.",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/signature.json"
+        }
+      },
+      {
+        "match": "^/clientapi/plan$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/plan.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "new_file",
+      "properties": {
+        "file": "data/whitelisted/file.py",
+        "content": "foo"
+      }
+    },
+    {
+      "description": "moving cursor at end of identifier",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 3
+      }
+    },
+    {
+      "description": "typing open paren '('",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "("
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(",
+          "cursor_runes": 4
+        }
+      }
+    },
+    {
+      "description": "typing 'b",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "b"
+      }
+    },
+    {
+      "description": "triggers a signature request after 'b'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(b",
+          "cursor_runes": 5
+        }
+      }
+    },
+    {
+      "description": "typing 'a",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "a"
+      }
+    },
+    {
+      "description": "triggers a signature request after 'a'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(ba",
+          "cursor_runes": 6
+        }
+      }
+    },
+    {
+      "description": "typing 'r",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "r"
+      }
+    },
+    {
+      "description": "triggers a signature request after 'r'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar",
+          "cursor_runes": 7
+        }
+      }
+    },
+    {
+      "description": "typing ',",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": ","
+      }
+    },
+    {
+      "description": "triggers a signature request after ','",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar,",
+          "cursor_runes": 8
+        }
+      }
+    },
+    {
+      "description": "typing ' ",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": " "
+      }
+    },
+    {
+      "description": "triggers a signature request after ' '",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, ",
+          "cursor_runes": 9
+        }
+      }
+    },
+    {
+      "description": "typing 'b",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "b"
+      }
+    },
+    {
+      "description": "triggers a signature request after 'b'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, b",
+          "cursor_runes": 10
+        }
+      }
+    },
+    {
+      "description": "typing 'a",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "a"
+      }
+    },
+    {
+      "description": "triggers a signature request after 'a'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, ba",
+          "cursor_runes": 11
+        }
+      }
+    },
+    {
+      "description": "typing 'z",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "z"
+      }
+    },
+    {
+      "description": "triggers a signature request after 'z'",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 12
+        }
+      }
+    }
+  ]
+}
