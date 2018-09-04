@@ -8,7 +8,7 @@
     "routes": [
       {
         "match": "^/clientapi/editor/signatures$",
-        "body_match": "\"cursor_runes\":\s*3,",
+        "body_match": ".+\"cursor_runes\":\\s*3[^0-9].*",
         "response": {
           "status": 404,
           "body": "data/responses/signature.json"
@@ -72,27 +72,12 @@
       }
     },
     {
-      "description": "removing the opening parent '('",
+      "description": "removing the opening parent '(' triggers a 404 signature response (see setup)",
       "step": "action",
       "type": "remove_text",
       "properties": {
         "from_offset": 4,
         "to_offset": 3
-      }
-    },
-    {
-      "description": "triggers a signature request which returns a 404 to close the popup",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo",
-          "cursor_runes": 3
-        }
       }
     },
     {
