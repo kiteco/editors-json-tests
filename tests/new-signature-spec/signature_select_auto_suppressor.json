@@ -64,16 +64,28 @@
       }
     },
     {
+      "description": "updating the signature response to return 404 and",
+      "step": "action",
+      "type": "update_route",
+      "properties": {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 404,
+          "body": "data/responses/signature.json"
+        }
+      }
+    },
+    {
       "description": "moving the cursor outside of the call expression",
       "step": "action",
       "type": "move_cursor",
       "properties": {
-        "offset": 2
+        "offset": 3
       }
     },
     {
-      "description": "triggers no signature request",
-      "step": "expect_not",
+      "description": "triggers one last signature request",
+      "step": "expect",
       "type": "request",
       "properties": {
         "path": "/clientapi/editor/signatures",
@@ -82,7 +94,30 @@
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "foo(bar",
-          "cursor_runes": 2
+          "cursor_runes": 3
+        }
+      }
+    },
+    {
+      "description": "more typing in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "b"
+      }
+    },
+    {
+      "description": "triggers no more signature request because the previously send 404 closes the popup",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foob(bar",
+          "cursor_runes": 4
         }
       }
     }

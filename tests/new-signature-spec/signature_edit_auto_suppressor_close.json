@@ -41,7 +41,19 @@
       }
     },
     {
-      "description": "typing closing paren ')'",
+      "description": ", updating the signature response to return 404 ",
+      "step": "action",
+      "type": "update_route",
+      "properties": {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 404,
+          "body": "data/responses/signature.json"
+        }
+      }
+    },
+    {
+      "description": "and typing closing paren ')'",
       "step": "action",
       "type": "input_text",
       "properties": {
@@ -49,11 +61,11 @@
       }
     },
     {
-      "description": "and typing after the closing paren",
+      "description": "More typing after the closing paren",
       "step": "action",
       "type": "input_text",
       "properties": {
-        "text": ","
+        "text": " and "
       }
     },
     {
@@ -66,8 +78,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(ba),",
-          "cursor_runes": 8
+          "text": "foo(ba) and",
+          "cursor_runes": 11
         }
       }
     }
