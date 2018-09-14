@@ -1,0 +1,87 @@
+{
+  "description": "Tests the signature specification at https://kite.quip.com/NdIbAwg272aJ/Spec-Function-Signatures-Editor-Plugins-UIUX-WIP with automatic edit event suppressors",
+  "setup": {
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/signature.json"
+        }
+      },
+      {
+        "match": "^/clientapi/plan$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/plan.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "new_file",
+      "properties": {
+        "file": "data/whitelisted/file.py",
+        "content": "foo(ba"
+      }
+    },
+    {
+      "description": "moving cursor at end of identifier",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 6
+      }
+    },
+    {
+      "description": ", updating the signature response to return 404 ",
+      "step": "action",
+      "type": "update_route",
+      "properties": {
+        "match": "^/clientapi/editor/signatures$",
+        "response": {
+          "status": 404,
+          "body": "data/responses/signature.json"
+        }
+      }
+    },
+    {
+      "description": "and typing closing paren ')'",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": ")"
+      }
+    },
+    {
+      "description": "More typing after the closing paren",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": " and "
+      }
+    },
+    {
+      "description": "triggers no signature request",
+      "step": "expect_not",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(ba) and",
+          "cursor_runes": 11
+        }
+      }
+    }
+  ]
+}

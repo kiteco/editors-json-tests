@@ -1,5 +1,5 @@
 {
-  "description": "Tests the signature specification at https://kite.quip.com/NdIbAwg272aJ/Spec-Function-Signatures-Editor-Plugins-UIUX-WIP, insertion using single character edits",
+  "description": "Tests the signature specification at https://kite.quip.com/NdIbAwg272aJ/Spec-Function-Signatures-Editor-Plugins-UIUX-WIP with select events (edit before selects).",
   "setup": {
     "whitelist": [
       "data/whitelisted"
@@ -29,7 +29,7 @@
       "type": "new_file",
       "properties": {
         "file": "data/whitelisted/file.py",
-        "content": "foo"
+        "content": "foo(bar, ba"
       }
     },
     {
@@ -37,15 +37,15 @@
       "step": "action",
       "type": "move_cursor",
       "properties": {
-        "offset": 3
+        "offset": 11
       }
     },
     {
-      "description": "typing open paren '('",
+      "description": "typing z",
       "step": "action",
       "type": "input_text",
       "properties": {
-        "text": "("
+        "text": "z"
       }
     },
     {
@@ -58,21 +58,21 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(",
-          "cursor_runes": 4
+          "text": "foo(bar, baz",
+          "cursor_runes": 12
         }
       }
     },
     {
-      "description": "typing 'b",
+      "description": "moving the cursor behind z",
       "step": "action",
-      "type": "input_text",
+      "type": "move_cursor",
       "properties": {
-        "text": "b"
+        "offset": 11
       }
     },
     {
-      "description": "triggers a signature request after 'b'",
+      "description": "triggers a signature request",
       "step": "expect",
       "type": "request",
       "properties": {
@@ -81,159 +81,182 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(b",
-          "cursor_runes": 5
-        }
-      }
-    },
-    {
-      "description": "typing 'a",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": "a"
-      }
-    },
-    {
-      "description": "triggers a signature request after 'a'",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(ba",
-          "cursor_runes": 6
-        }
-      }
-    },
-    {
-      "description": "typing 'r",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": "r"
-      }
-    },
-    {
-      "description": "triggers a signature request after 'r'",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar",
-          "cursor_runes": 7
-        }
-      }
-    },
-    {
-      "description": "typing ',",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": ","
-      }
-    },
-    {
-      "description": "triggers a signature request after ','",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar,",
-          "cursor_runes": 8
-        }
-      }
-    },
-    {
-      "description": "typing ' ",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": " "
-      }
-    },
-    {
-      "description": "triggers a signature request after ' '",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, ",
-          "cursor_runes": 9
-        }
-      }
-    },
-    {
-      "description": "typing 'b",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": "b"
-      }
-    },
-    {
-      "description": "triggers a signature request after 'b'",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, b",
-          "cursor_runes": 10
-        }
-      }
-    },
-    {
-      "description": "typing 'a",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": "a"
-      }
-    },
-    {
-      "description": "triggers a signature request after 'a'",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, ba",
+          "text": "foo(bar, baz",
           "cursor_runes": 11
         }
       }
     },
     {
-      "description": "typing 'z",
+      "description": "moving the cursor behind a",
       "step": "action",
-      "type": "input_text",
+      "type": "move_cursor",
       "properties": {
-        "text": "z"
+        "offset": 10
       }
     },
     {
-      "description": "triggers a signature request after 'z'",
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 10
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind b",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 9
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 9
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind space",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 8
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 8
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind comma",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 7
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 7
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind r",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 6
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 6
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind a",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 5
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 5
+        }
+      }
+    },
+    {
+      "description": "moving the cursor behind b",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 4
+      }
+    },
+    {
+      "description": "triggers a signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo(bar, baz",
+          "cursor_runes": 4
+        }
+      }
+    },
+    {
+      "description": "moving the cursor at the end of the document in front of z",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 12
+      }
+    },
+    {
+      "description": "triggers a signature request",
       "step": "expect",
       "type": "request",
       "properties": {
