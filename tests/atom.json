@@ -1,4 +1,8 @@
 [
   "completions", "events", "hover", "notifications", "signatures",
-  "hover-pre-check", "events-pre-check", "completions-pre-check", "signatures-pre-check"
+  "hover-pre-check", "events-pre-check", "completions-pre-check", "signatures-pre-check",
+  "completions-new-spec/alpha/continuously",
+  "completions-new-spec/dot/continuously",
+  "completions-new-spec/space/continuously",
+  "completions-new-spec/any/all", "completions-new-spec/any/continuously"
 ]
