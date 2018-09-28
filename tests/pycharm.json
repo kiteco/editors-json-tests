@@ -3,9 +3,9 @@
   "hover",
   "notifications",
   "signatures",
-  "new-signature-spec",
+  "new_signature_spec",
   "completions",
-  "completions-new-spec/alpha/continuously",
-  "completions-new-spec/dot/continuously",
-  "completions-new-spec/space/continuously"
+  "completions_new_spec/alpha/continuously",
+  "completions_new_spec/dot/continuously",
+  "completions_new_spec/space/continuously"
 ]
