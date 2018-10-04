@@ -21,7 +21,7 @@
       "step": "action",
       "type": "new_file",
       "properties": {
-        "file": "data/whitelisted/file.py",
+        "file": "data/whitelisted/new_file_space.py",
         "content": "import"
       }
     },
@@ -50,7 +50,7 @@
         "method": "POST",
         "body": {
           "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "filename": "${editors.data/whitelisted/new_file_space.py.filename}",
           "text": "import ",
           "cursor_runes": 7
         }
@@ -73,7 +73,7 @@
         "method": "POST",
         "body": {
           "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "filename": "${editors.data/whitelisted/new_file_space.py.filename}",
           "text": "import  ",
           "cursor_runes": 8
         }

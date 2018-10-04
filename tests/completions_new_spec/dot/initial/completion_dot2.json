@@ -21,7 +21,7 @@
       "step": "action",
       "type": "new_file",
       "properties": {
-        "file": "data/whitelisted/file.py",
+        "file": "data/whitelisted/new_file_dot2.py",
         "content": "foo[1, "
       }
     },
@@ -50,7 +50,7 @@
         "method": "POST",
         "body": {
           "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "filename": "${editors.data/whitelisted/new_file_dot2.py.filename}",
           "text": "foo[1, .",
           "cursor_runes": 8
         }
@@ -73,7 +73,7 @@
         "method": "POST",
         "body": {
           "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "filename": "${editors.data/whitelisted/new_file_dot2.py.filename}",
           "text": "foo[1, ..",
           "cursor_runes": 9
         }
