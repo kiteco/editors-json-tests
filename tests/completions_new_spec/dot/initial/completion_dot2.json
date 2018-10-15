@@ -55,29 +55,6 @@
           "cursor_runes": 8
         }
       }
-    },
-    {
-      "description": "typing '.'",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": "."
-      }
-    },
-    {
-      "description": "sends NO completion request",
-      "step": "expect_not",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/completions",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/new_file_dot2.py.filename}",
-          "text": "foo[1, ..",
-          "cursor_runes": 9
-        }
-      }
     }
   ]
 }
