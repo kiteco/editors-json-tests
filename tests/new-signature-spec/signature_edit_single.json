@@ -29,7 +29,7 @@
       "type": "new_file",
       "properties": {
         "file": "data/whitelisted/file.py",
-        "content": "foo"
+        "content": "def foo(): pass\nfoo"
       }
     },
     {
@@ -37,7 +37,7 @@
       "step": "action",
       "type": "move_cursor",
       "properties": {
-        "offset": 3
+        "offset": 19
       }
     },
     {
@@ -58,8 +58,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(",
-          "cursor_runes": 4
+          "text": "def foo(): pass\nfoo(",
+          "cursor_runes": 20
         }
       }
     },
@@ -81,8 +81,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(b",
-          "cursor_runes": 5
+          "text": "def foo(): pass\nfoo(b",
+          "cursor_runes": 21
         }
       }
     },
@@ -104,8 +104,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(ba",
-          "cursor_runes": 6
+          "text": "def foo(): pass\nfoo(ba",
+          "cursor_runes": 22
         }
       }
     },
@@ -127,8 +127,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar",
-          "cursor_runes": 7
+          "text": "def foo(): pass\nfoo(bar",
+          "cursor_runes": 23
         }
       }
     },
@@ -150,8 +150,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar,",
-          "cursor_runes": 8
+          "text": "def foo(): pass\nfoo(bar,",
+          "cursor_runes": 24
         }
       }
     },
@@ -173,8 +173,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, ",
-          "cursor_runes": 9
+          "text": "def foo(): pass\nfoo(bar, ",
+          "cursor_runes": 25
         }
       }
     },
@@ -196,8 +196,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, b",
-          "cursor_runes": 10
+          "text": "def foo(): pass\nfoo(bar, b",
+          "cursor_runes": 26
         }
       }
     },
@@ -219,8 +219,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, ba",
-          "cursor_runes": 11
+          "text": "def foo(): pass\nfoo(bar, ba",
+          "cursor_runes": 27
         }
       }
     },
@@ -242,8 +242,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(bar, baz",
-          "cursor_runes": 12
+          "text": "def foo(): pass\nfoo(bar, baz",
+          "cursor_runes": 28
         }
       }
     }

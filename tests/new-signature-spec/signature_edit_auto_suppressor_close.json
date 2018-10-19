@@ -29,7 +29,7 @@
       "type": "new_file",
       "properties": {
         "file": "data/whitelisted/file.py",
-        "content": "foo(ba"
+        "content": "def foo(): pass\nfoo(ba"
       }
     },
     {
@@ -37,7 +37,7 @@
       "step": "action",
       "type": "move_cursor",
       "properties": {
-        "offset": 6
+        "offset": 22
       }
     },
     {
@@ -78,8 +78,8 @@
         "body": {
           "editor": "${plugin}",
           "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "foo(ba) and",
-          "cursor_runes": 11
+          "text": "def foo(): pass\nfoo(ba) and",
+          "cursor_runes": 27
         }
       }
     }
