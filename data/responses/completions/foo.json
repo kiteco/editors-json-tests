@@ -1,0 +1,25 @@
+{
+  "completions": [
+    {
+      "display": "foo",
+      "insert": "foo",
+      "hint": "function",
+      "documentation_text": "",
+      "documentation_html": ""
+    },
+    {
+      "display": "foobar1",
+      "insert": "foobar1",
+      "hint": "function",
+      "documentation_text": "",
+      "documentation_html": ""
+    },
+    {
+      "display": "foobar2",
+      "insert": "foobar2",
+      "hint": "function",
+      "documentation_text": "",
+      "documentation_html": ""
+    }
+  ]
+}
