@@ -1,5 +1,6 @@
 {
   "description": "Event workflow in not whitelisted file",
+  "live_environment": false,
   "setup": {
     "whitelist": [],
     "kited": "authenticated"

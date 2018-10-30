@@ -1,5 +1,6 @@
 {
   "description": "Tests whitelist notifications with blacklisted files",
+  "live_environment": false,
   "setup": {
     "whitelist": [],
     "blacklist": [

@@ -1,5 +1,6 @@
 {
   "description": "Signature completion workflow in a non whitelisted file",
+  "live_environment": false,
   "setup": {
     "whitelisted": [],
     "kited": "authenticated"
