@@ -1,5 +1,6 @@
 {
   "description": "Test the hover feature in a blacklisted file",
+  "live_environment": false,
   "setup": {
     "blacklist": [
       "data/blacklisted"

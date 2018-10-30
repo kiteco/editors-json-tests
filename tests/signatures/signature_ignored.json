@@ -1,5 +1,6 @@
 {
   "description": "Signature completion workflow in an ignored file",
+  "live_environment": false,
   "setup": {
     "whitelisted": [
       "data/whitelisted"

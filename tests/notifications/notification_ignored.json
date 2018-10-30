@@ -1,5 +1,6 @@
 {
   "description": "Tests whitelist notifications with ignored files",
+  "live_environment": false,
   "setup": {
     "whitelist": ["data/whitelisted"],
     "ignored": ["data/whitelisted"],
