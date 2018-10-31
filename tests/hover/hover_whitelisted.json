@@ -1,5 +1,6 @@
 {
-  "description": "Test the hover feature in a whitelisted file",
+  "description": "Test the hover feature in a whitelisted file. Currently icompatible with live_environment, because kited isn't providing valid data after a single event.",
+  "live_environment": false,
   "setup": {
     "whitelist": [
       "data/whitelisted"
