@@ -1,5 +1,6 @@
 {
   "description": "Event with kite not reachable",
+  "live_environment": false,
   "setup": {
     "kited": "unreachable"
   },

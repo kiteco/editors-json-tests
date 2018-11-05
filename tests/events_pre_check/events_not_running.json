@@ -1,5 +1,6 @@
 {
   "description": "Event with kite not installed",
+  "live_environment": false,
   "setup": {
     "kited": "not_running"
   },

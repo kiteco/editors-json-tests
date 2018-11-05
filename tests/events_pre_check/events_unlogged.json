@@ -1,5 +1,6 @@
 {
   "description": "Event with kite not authenticated",
+  "live_environment": false,
   "setup": {
     "kited": "unlogged"
   },

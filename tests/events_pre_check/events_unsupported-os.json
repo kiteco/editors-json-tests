@@ -1,5 +1,6 @@
 {
   "description": "Event on unsupported os",
+  "live_environment": false,
   "setup": {
     "kited": "unsupported"
   },
