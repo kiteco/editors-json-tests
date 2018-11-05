@@ -1,5 +1,6 @@
 {
   "description": "Signature completion workflow on unsupported platform",
+  "live_environment": false,
   "setup": {
     "whitelist": [
       "data/whitelisted"

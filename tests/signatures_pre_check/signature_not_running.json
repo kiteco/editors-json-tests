@@ -1,5 +1,6 @@
 {
   "description": "Signature completion workflow with kite not running",
+  "live_environment": false,
   "setup": {
     "whitelist": [
       "data/whitelisted"

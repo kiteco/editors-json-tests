@@ -1,5 +1,6 @@
 {
   "description": "Test the hover feature with kite unreachable",
+  "live_environment": false,
   "setup": {
     "whitelist": [
       "data/whitelisted"

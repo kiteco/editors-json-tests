@@ -1,5 +1,6 @@
 {
   "description": "Test the hover feature on an unsupported platform",
+  "live_environment": false,
   "setup": {
     "whitelist": [
       "data/whitelisted"
