@@ -1,5 +1,6 @@
 {
   "description": "Tests whitelist notifications with undefined whitelisting",
+  "live_environment": false,
   "setup": {
     "whitelist": [],
     "kited": "authenticated"

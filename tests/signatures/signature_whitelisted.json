@@ -91,41 +91,6 @@
           "cursor_runes": 27
         }
       }
-    },
-    {
-      "description": "updating the signature response to return 404 and",
-      "step": "action",
-      "type": "update_route",
-      "properties": {
-        "match": "^/clientapi/editor/signatures$",
-        "response": {
-          "status": 404,
-          "body": "data/responses/signature.json"
-        }
-      }
-    },
-    {
-      "description": "Typing the closing parenthesis ')'",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": ")"
-      }
-    },
-    {
-      "description": "triggers no signature request",
-      "step": "expect_not",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "import json\njson.dumps(123,)",
-          "cursor_runes": 28
-        }
-      }
     }
   ]
 }

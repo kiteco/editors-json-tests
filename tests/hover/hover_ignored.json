@@ -1,5 +1,6 @@
 {
   "description": "Test the hover feature in an ignored file",
+  "live_environment": false,
   "setup": {
     "whitelist": [
       "data/whitelisted"

@@ -1,5 +1,6 @@
 {
   "description": "Tests code completion in non whitelisted file",
+  "live_environment": false,
   "setup": {
     "kited": "authenticated"
   },
