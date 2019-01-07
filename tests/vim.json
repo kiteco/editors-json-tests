@@ -1,1 +1,7 @@
-["completions", "events", "hover", "notifications"]
+[
+  "completions", "events", "hover", "notifications", "signatures",
+  "completions_new_spec/alpha/continuously",
+  "completions_new_spec/dot/continuously",
+  "completions_new_spec/space/continuously",
+  "completions_new_spec/any/continuously"
+]
