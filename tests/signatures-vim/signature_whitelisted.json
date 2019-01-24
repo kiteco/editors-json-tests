@@ -1,5 +1,5 @@
 {
-  "description": "Signature completion workflow for vim. This skips the test for signature completion when new text is entered in a call expression. vim only supports completion requests here, but not both.",
+  "description": "Signature completion workflow",
   "setup": {
     "whitelist": [
       "data/whitelisted"
@@ -43,6 +43,29 @@
           "filename": "${editors.data/whitelisted/file.py.filename}",
           "text": "import json\njson.dumps(",
           "cursor_runes": 23
+        }
+      }
+    },
+    {
+      "description": "typing a value",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "123"
+      }
+    },
+    {
+      "description": "sends a new signature request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/signatures",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "import json\njson.dumps(123",
+          "cursor_runes": 26
         }
       }
     },

@@ -1,5 +1,5 @@
 [
-  "completions", "events", "hover", "notifications", "signatures",
+  "completions", "events", "hover", "notifications", "signatures-vim",
   "completions_new_spec/alpha/continuously",
   "completions_new_spec/dot/continuously",
   "completions_new_spec/space/continuously",
