@@ -1,7 +1,6 @@
 [
   "events",
   "hover",
-  "notifications",
   "signatures",
   "new_signature_spec",
   "completions",
