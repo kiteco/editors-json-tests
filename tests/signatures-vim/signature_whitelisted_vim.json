@@ -45,29 +45,6 @@
           "cursor_runes": 23
         }
       }
-    },
-    {
-      "description": "Typing a comma after the value",
-      "step": "action",
-      "type": "input_text",
-      "properties": {
-        "text": ","
-      }
-    },
-    {
-      "description": "sends a new signature request",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/signatures",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "import json\njson.dumps(123,",
-          "cursor_runes": 27
-        }
-      }
     }
   ]
 }
