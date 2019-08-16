@@ -1,0 +1,108 @@
+{
+  "description": "Completion spec: alphabetic character, initially triggered, https://kite.quip.com/LVIZAGwNQKEg/Spec-Code-Completions-Editor-Plugins-UIUX-WIP#STDACA9EFNv",
+  "setup": {
+    "completion_snippets": true,
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^/clientapi/editor/complete$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/completions-snippets/foo.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "description": "start with an empty file",
+      "step": "action",
+      "type": "new_file",
+      "properties": {
+        "file": "data/whitelisted/file.py",
+        "content": ""
+      }
+    },
+    {
+      "description": "typing 'f'",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "f"
+      }
+    },
+    {
+      "description": "sends a completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "f",
+          "position": {
+            "begin": 1,
+            "end": 1
+          }
+        }
+      }
+    },
+    {
+      "description": "typing 'o'",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "o"
+      }
+    },
+    {
+      "description": "sends a completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "fo",
+          "position": {
+            "begin": 2,
+            "end": 2
+          }
+        }
+      }
+    },
+    {
+      "description": "typing 'o'",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "o"
+      }
+    },
+    {
+      "description": "sends a completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo",
+          "position": {
+            "begin": 3,
+            "end": 3
+          }
+        }
+      }
+    }
+  ]
+}

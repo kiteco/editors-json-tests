@@ -1,0 +1,64 @@
+{
+  "description": "Completion: any character, https://kite.quip.com/LVIZAGwNQKEg/Spec-Code-Completions-Editor-Plugins-UIUX-WIP#STDACAABliB",
+  "setup": {
+    "completion_snippets": true,
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated",
+    "routes": [
+      {
+        "match": "^/clientapi/editor/complete$",
+        "response": {
+          "status": 200,
+          "body": "data/responses/completions/foo.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "description": "open new file",
+      "step": "action",
+      "type": "new_file",
+      "properties": {
+        "file": "data/whitelisted/file.py",
+        "content": "foo"
+      }
+    },
+    {
+      "description": "moving cursor to the end",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 3
+      }
+    },
+    {
+      "description": "typing '['",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "["
+      }
+    },
+    {
+      "description": "triggers completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "foo[",
+          "position": {
+            "begin": 4,
+            "end": 4
+          }
+        }
+      }
+    }
+  ]
+}
