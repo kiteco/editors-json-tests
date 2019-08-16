@@ -1,0 +1,52 @@
+{
+  "completions": [
+    {
+      "snippet": {
+        "text": "foo()",
+        "placeholders": []
+      },
+      "replace": {
+        "begin": 21,
+        "end": 24
+      },
+      "display": "foo()",
+      "documentation": {
+        "text": ""
+      },
+      "hint": "function",
+      "smart": false
+    },
+    {
+      "snippet": {
+        "text": "foobar1()",
+        "placeholders": []
+      },
+      "replace": {
+        "begin": 21,
+        "end": 24
+      },
+      "display": "foobar1()",
+      "documentation": {
+        "text": ""
+      },
+      "hint": "function",
+      "smart": false
+    },
+    {
+      "snippet": {
+        "text": "foobar2()",
+        "placeholders": []
+      },
+      "replace": {
+        "begin": 21,
+        "end": 24
+      },
+      "display": "foobar2()",
+      "documentation": {
+        "text": ""
+      },
+      "hint": "function",
+      "smart": false
+    }
+  ]
+}
