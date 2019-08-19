@@ -1,5 +1,9 @@
 [
-  "completions", "events", "hover", "signatures-vim",
+  "completions",
+  "events",
+  "hover",
+  "signatures-vim",
+  "completions_snippets/default",
   "completions_snippets/alpha/continuously",
   "completions_snippets/dot/continuously",
   "completions_snippets/space/continuously",

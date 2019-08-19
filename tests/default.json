@@ -1,1 +1,6 @@
-["completions", "events", "hover", "signatures"]
+[
+  "completions",
+  "events",
+  "hover",
+  "signatures"
+]

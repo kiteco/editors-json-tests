@@ -1,3 +1,9 @@
-[ "completions", "events", "hover", "signatures",
-  "completions_new_spec/alpha/initial", "completions_new_spec/dot/initial", "completions_new_spec/space/continuously"
+[
+  "completions",
+  "events",
+  "hover",
+  "signatures",
+  "completions_new_spec/alpha/initial",
+  "completions_new_spec/dot/initial",
+  "completions_new_spec/space/continuously"
 ]

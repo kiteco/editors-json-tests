@@ -1,0 +1,62 @@
+{
+  "description": "Tests code completion workflow",
+  "setup": {
+    "completion_snippets": true,
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/file.py"
+      }
+    },
+    {
+      "description": "moving the cursor at the end",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 11
+      }
+    },
+    {
+      "description": "typing unicode characters",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\n你好"
+      }
+    },
+    {
+      "description": "and typing an identifier",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\njson.dum"
+      }
+    },
+    {
+      "description": "sends a completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/file.py.filename}",
+          "text": "import json\n你好\njson.dum",
+          "position": {
+            "begin": 23,
+            "end": 23
+          }
+        }
+      }
+    }
+  ]
+}

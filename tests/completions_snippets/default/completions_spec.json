@@ -1,0 +1,183 @@
+{
+  "description": "Tests code completion as defined in behavioural spec",
+  "setup": {
+    "completion_snippets": true,
+    "whitelist": [
+      "data/whitelisted"
+    ],
+    "kited": "authenticated"
+  },
+  "test": [
+    {
+      "description": "opening a file",
+      "step": "action",
+      "type": "open",
+      "properties": {
+        "file": "data/whitelisted/empty.py"
+      }
+    },
+    {
+      "description": "typing 'import ' in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "import "
+      }
+    },
+    {
+      "description": "triggers automatic completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import ",
+          "position": {
+            "begin": 7,
+            "end": 7
+          }
+        }
+      }
+    },
+    {
+      "description": "typing 'from ' in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\nfrom "
+      }
+    },
+    {
+      "description": "triggers automatic completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import \nfrom ",
+          "position": {
+            "begin": 13,
+            "end": 13
+          }
+        }
+      }
+    },
+    {
+      "description": "typing 'from foo import ' in the buffer",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "foo import "
+      }
+    },
+    {
+      "description": "triggers automatic completion",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import \nfrom foo import ",
+          "position": {
+            "begin": 24,
+            "end": 24
+          }
+        }
+      }
+    },
+    {
+      "description": "typing the first characters of an identifier",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "\nf"
+      }
+    },
+    {
+      "description": "triggers automatic completion",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import \nfrom foo import \nf",
+          "position": {
+            "begin": 26,
+            "end": 26
+          }
+        }
+      }
+    },
+    {
+      "description": "typing a dot after an identifier",
+      "step": "action",
+      "type": "input_text",
+      "properties": {
+        "text": "."
+      }
+    },
+    {
+      "description": "triggers automatic completion",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import \nfrom foo import \nf.",
+          "position":{
+            "begin": 27,
+            "end": 27
+          }
+        }
+      }
+    },
+    {
+      "description": "moving the cursor",
+      "step": "action",
+      "type": "move_cursor",
+      "properties": {
+        "offset": 26
+      }
+    },
+    {
+      "description": "requesting manual invocation",
+      "step": "action",
+      "type": "request_completion",
+      "properties": {
+      }
+    },
+    {
+      "description": "triggers a completion request",
+      "step": "expect",
+      "type": "request",
+      "properties": {
+        "path": "/clientapi/editor/complete",
+        "method": "POST",
+        "body": {
+          "editor": "${plugin}",
+          "filename": "${editors.data/whitelisted/empty.py.filename}",
+          "text": "import \nfrom foo import \nf.",
+          "position": {
+            "begin": 26,
+            "end": 26
+          }
+        }
+      }
+    }
+  ]
+}
