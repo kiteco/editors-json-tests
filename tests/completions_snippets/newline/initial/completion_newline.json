@@ -2,7 +2,6 @@
   "description": "Completion: newline, initially triggered: https://kite.quip.com/LVIZAGwNQKEg/Spec-Code-Completions-Editor-Plugins-UIUX-WIP#STDACAqMAbc",
   "setup": {
     "completion_snippets": true,
-    "completion_snippets": true,
     "whitelist": [
       "data/whitelisted"
     ],

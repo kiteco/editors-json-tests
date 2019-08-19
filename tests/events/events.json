@@ -81,22 +81,7 @@
       }
     },
     {
-      "description": "calls the completions endpoint",
-      "step": "expect",
-      "type": "request",
-      "properties": {
-        "path": "/clientapi/editor/completions",
-        "method": "POST",
-        "body": {
-          "editor": "${plugin}",
-          "filename": "${editors.data/whitelisted/file.py.filename}",
-          "text": "import json\nim",
-          "cursor_runes": 14
-        }
-      }
-    },
-    {
-      "description": "opening another file",
+      "description": "and opening another file",
       "step": "action",
       "type": "open",
       "properties": {
