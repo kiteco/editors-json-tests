@@ -16,14 +16,6 @@
       }
     },
     {
-      "description": "or opening a JavaScript file",
-      "step": "action",
-      "type": "open",
-      "properties": {
-        "file": "data/whitelisted/file.js"
-      }
-    },
-    {
       "description": "must not trigger a (focus) event",
       "step": "expect",
       "type": "request_count",
