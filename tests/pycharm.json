@@ -1,7 +1,5 @@
 [
   "events_utf16",
-  "signatures",
-  "new_signature_spec",
   "completions_snippets/default",
   "completions_snippets/alpha/continuously",
   "completions_snippets/dot/continuously",
